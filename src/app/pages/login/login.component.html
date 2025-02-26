@@ -1,0 +1,30 @@
+<main>
+    <div class="grid grid-cols-12">
+        <div class=" img col-span-7">
+        </div>
+        <div class="form col-span-5">
+            <h1>Login</h1>
+
+            <form action="" [formGroup]="form">
+                <div style="margin-top: 30px;">
+                    <p>Email</p>
+                    <div class="input eye">
+                        <input type="text" placeholder="user@email.com" formControlName="email">
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px;">
+                    <p>Senha</p>
+                    <div class="input eye">
+                        <input [type]="hide ? 'password' : 'text'" placeholder="Senha" formControlName="password">
+                        <mat-icon style="cursor: pointer;" (click)="hide = !hide">{{hide ? 'visibility' :
+                            'visibility_off'}}</mat-icon>
+                    </div>
+                </div>
+                <h3>Esqueceu a Senha?</h3>
+
+                <button (click)="login()">ENTRAR</button>
+            </form>
+        </div>
+    </div>
+</main>
