@@ -1,1 +1,59 @@
-<p>sidemenu works!</p>
+<div class="fuse-vertical-navigation-wrapper sidemenu flex flex-col justify-between">
+    <div>
+        <div class="flex items-center justify-center w-full p-3">
+            <div>
+                <h1 class="m-0 py-3 text-[24px] font-[700]" style="margin: 0;">EvoAI</h1>
+            </div>
+        </div>
+
+        <div>
+            
+
+            <div class="text-[16px] pb-[8px] meu">
+                <button mat-menu-item [routerLink]="'/dashboard'" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                    <mat-icon>dashboard</mat-icon>
+                    <span>Dashboard</span>
+                </button>
+                <button mat-menu-item [routerLink]="'/turma'" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                    <mat-icon>group</mat-icon>
+                    <span>Turma</span>
+                </button>
+                <button mat-menu-item [routerLink]="'/subject'" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                    <mat-icon>book</mat-icon>
+                    <span>Disciplina</span>
+                </button>
+                <button mat-menu-item [routerLink]="'/semester'" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                    <mat-icon>calendar_today</mat-icon>
+                    <span>Bimestre</span>
+                </button>
+                <button mat-menu-item [routerLink]="'/student'" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                    <mat-icon>person</mat-icon>
+                    <span>Estudante</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-data py-3 px-3" style="margin: 0 10px">
+        <mat-divider style="width: 230px; margin: 0 auto !important; border-top-color: #C6C6C6 !important; padding-bottom: 10px;"></mat-divider>
+        <div class="flex justify-between">
+            
+                <div class="flex flex-col justify-center ps-2">
+                    <span class="name font-bold" style="font-size: 13px;">{{user.nome}}</span>
+                    <span class="position text-gray-500" style="font-size: 12px;">{{ user.escola.nome }}</span>
+                </div>
+            
+            <div class="right-align">
+                <button mat-icon-button class="p-0" aria-label="Open User Settings Menu" [matMenuTriggerFor]="menu">
+                    <mat-icon>keyboard_arrow_up</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="logout()">
+                        <mat-icon>exit_to_app</mat-icon>
+                        <span>Sair</span>
+                    </button>
+                </mat-menu>
+            </div>
+        </div>
+    </div>
+</div>

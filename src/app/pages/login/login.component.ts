@@ -37,7 +37,7 @@ export class LoginComponent {
       next: res => {
         this.authService.saveToken(res.token, res.user);
         this.toastr.success('Login Realizado com Sucesso!');
-        this.router.navigate(['/home']);
+        this.router.navigate(['/dashboard']);
       },
       error: err => {
         this.errorMessage = `${err}`;

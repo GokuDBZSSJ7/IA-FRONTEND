@@ -28,6 +28,11 @@ export class AuthService {
     return this.tokenSubject.value;
   }
 
+  getUser() {
+    return JSON.parse(localStorage.getItem('user') || '{}');
+  }
+  
+
   isAuthenticated(): boolean {
     return this.getToken() !== null;
   }
@@ -36,4 +41,6 @@ export class AuthService {
     localStorage.removeItem('token');
     this.tokenSubject.next(null);
   }
+
+  
 }
