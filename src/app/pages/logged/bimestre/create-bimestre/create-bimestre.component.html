@@ -1,11 +1,11 @@
 <main class="container mx-auto px-8 py-6">
     <div class="container-header flex justify-between items-center mb-5">
-        <h1>Cadastrar Turma</h1>
+        <h1>Cadastrar Bimestre</h1>
     </div>
 
     <form [formGroup]="form" class="grid grid-cols-12 gap-2">
         <div class="col-span-4">
-            <input type="text" placeholder="Nome da Turma..." formControlName="nome">
+            <input type="text" placeholder="Nome do Bimestre..." formControlName="nome">
         </div>
         <div class="col-span-5">
             <select formControlName="curso_id">
@@ -16,7 +16,13 @@
             </select>
         </div>
         <div class="col-span-3">
-            <input type="number" placeholder="Ano da Turma..." formControlName="ano">
+            <input type="number" placeholder="Ano do Bimestre..." formControlName="ano">
+        </div>
+        <div class="col-span-4 mt-2">
+            <input type="text" id="dateInput" placeholder="Selecione uma data de inicio" onfocus="this.type='date'" onblur="if(!this.value) this.type='text'" formControlName="inicio">
+        </div>
+        <div class="col-span-4 mt-2">
+            <input type="text" id="dateInput" placeholder="Selecione uma data de fim" onfocus="this.type='date'" onblur="if(!this.value) this.type='text'" formControlName="fim">
         </div>
 
         <div class="col-span-6 btns">

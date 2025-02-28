@@ -16,8 +16,20 @@ export class TurmaService {
     return this.http.get(`${this.url}getTurmaByCursoId/${id}`);
   }
 
+  getById(id: number): Observable<any> {
+    return this.http.get(`${this.url}turmas/${id}`);
+  }
+
+  update(data: any, id: number): Observable<any> {
+    return this.http.put<any>(`${this.url}turmas/${id}`, data);
+  }
+
   all(): Observable<any> {
     return this.http.get(`${this.url}turmas`);
+  }
+
+  create(data: any): Observable<any> {
+    return this.http.post<any>(`${this.url}turmas`, data);
   }
 
   getTurmasDoAdmin(id: number): Observable<any> {

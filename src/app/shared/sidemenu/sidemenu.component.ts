@@ -34,5 +34,6 @@ export class SidemenuComponent {
 
   logout(): void {
     this.authService.logout();
+    window.location.reload();
   }
 }

@@ -24,7 +24,23 @@ export const routes: Routes = [
             {
                 path: 'turma/criar-turma',
                 loadComponent: () => import('./pages/logged/turma/create-turma/create-turma.component').then((c) => c.CreateTurmaComponent)
-            }
+            },
+            {
+                path: 'turma/criar-turma/:id',
+                loadComponent: () => import('./pages/logged/turma/create-turma/create-turma.component').then((c) => c.CreateTurmaComponent)
+            },
+            {
+                path: 'bimestre',
+                loadComponent: () => import('./pages/logged/bimestre/bimestre.component').then((c) => c.BimestreComponent)
+            },
+            {
+                path: 'bimestre/criar-bimestre',
+                loadComponent: () => import('./pages/logged/bimestre/create-bimestre/create-bimestre.component').then((c) => c.CreateBimestreComponent)
+            },
+            {
+                path: 'bimestre/criar-bimestre/:id',
+                loadComponent: () => import('./pages/logged/bimestre/create-bimestre/create-bimestre.component').then((c) => c.CreateBimestreComponent)
+            },
         ]
     },
     {
