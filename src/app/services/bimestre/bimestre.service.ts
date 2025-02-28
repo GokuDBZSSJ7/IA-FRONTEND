@@ -14,7 +14,7 @@ export class BimestreService {
     ) { }
 
   delete(id: number) {
-    return this.http.delete(`${this.url}bimestres`)
+    return this.http.delete(`${this.url}bimestres/${id}`)
   }
 
   getBimestresByAdminId(id: number): Observable<any> {
@@ -30,6 +30,6 @@ export class BimestreService {
   }
 
   update(data: any, id: number): Observable<any> {
-    return this.http.put<any>(`${this.url}bimestres`, data);
+    return this.http.put<any>(`${this.url}bimestres/${id}`, data);
   }
 }

@@ -84,6 +84,6 @@ export class BimestreComponent {
   }
 
   edit(id: number) {
-    this.router.navigate([`/turma/criar-turma/${id}`]);
+    this.router.navigate([`/bimestre/criar-bimestre/${id}`]);
   }
 }

@@ -41,6 +41,18 @@ export const routes: Routes = [
                 path: 'bimestre/criar-bimestre/:id',
                 loadComponent: () => import('./pages/logged/bimestre/create-bimestre/create-bimestre.component').then((c) => c.CreateBimestreComponent)
             },
+            {
+                path: 'disciplina',
+                loadComponent: () => import('./pages/logged/disciplina/disciplina.component').then((c) => c.DisciplinaComponent)
+            },
+            {
+                path: 'disciplina/criar-disciplina',
+                loadComponent: () => import('./pages/logged/disciplina/criar-disciplina/criar-disciplina.component').then((c) => c.CriarDisciplinaComponent)
+            },
+            {
+                path: 'disciplina/criar-disciplina/:id',
+                loadComponent: () => import('./pages/logged/disciplina/criar-disciplina/criar-disciplina.component').then((c) => c.CriarDisciplinaComponent)
+            },
         ]
     },
     {

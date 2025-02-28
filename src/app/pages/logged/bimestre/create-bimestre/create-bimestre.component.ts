@@ -75,6 +75,8 @@ export class CreateBimestreComponent implements OnInit {
           id: res.id,
           nome: res.nome,
           ano: res.ano,
+          inicio: res.inicio,
+          fim: res.fim,
           curso_id: res.curso_id  // Aqui, preenche o formulário com os dados da Bimestre
         });
       },
@@ -96,7 +98,7 @@ export class CreateBimestreComponent implements OnInit {
     this.bimestreService.create(this.form.value).subscribe({
       next: res => {
         Swal.fire('A Bimestre foi criada com sucesso!', '', 'success');
-        this.router.navigate(['/Bimestre']);
+        this.router.navigate(['/bimestre']);
       },
       error: err => {
         Swal.fire('Houve um problema no processo!', '', 'error');
@@ -108,7 +110,7 @@ export class CreateBimestreComponent implements OnInit {
     this.bimestreService.update(this.form.value, this.form.controls['id'].value).subscribe({
       next: res => {
         Swal.fire('A Bimestre foi atualizada com sucesso!', '', 'success');
-        this.router.navigate(['/Bimestre']);
+        this.router.navigate(['/bimestre']);
       },
       error: err => {
         Swal.fire('Houve um problema ao atualizar a Bimestre!', '', 'error');
