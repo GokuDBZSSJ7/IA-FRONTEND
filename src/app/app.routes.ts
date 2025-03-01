@@ -53,6 +53,18 @@ export const routes: Routes = [
                 path: 'disciplina/criar-disciplina/:id',
                 loadComponent: () => import('./pages/logged/disciplina/criar-disciplina/criar-disciplina.component').then((c) => c.CriarDisciplinaComponent)
             },
+            {
+                path: 'curso',
+                loadComponent: () => import('./pages/logged/curso/curso.component').then((c) => c.CursoComponent)
+            },
+            {
+                path: 'curso/criar-curso',
+                loadComponent: () => import('./pages/logged/curso/criar-curso/criar-curso.component').then((c) => c.CriarCursoComponent)
+            },
+            {
+                path: 'curso/criar-curso/:id',
+                loadComponent: () => import('./pages/logged/curso/criar-curso/criar-curso.component').then((c) => c.CriarCursoComponent)
+            },
         ]
     },
     {

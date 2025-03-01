@@ -18,6 +18,10 @@
                     <mat-icon>group</mat-icon>
                     <span>Turma</span>
                 </button>
+                <button mat-menu-item [routerLink]="'/curso'" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                    <mat-icon>menu_book</mat-icon>
+                    <span>Curso</span>
+                </button>
                 <button mat-menu-item [routerLink]="'/disciplina'" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                     <mat-icon>book</mat-icon>
                     <span>Disciplina</span>
