@@ -95,7 +95,7 @@ export class CriarCursoComponent {
       this.form.controls['escola_id'].patchValue(this.user.escola_id);
       this.cursoService.create(this.form.value).subscribe({
         next: res => {
-          Swal.fire('O Bimestre foi criado com sucesso!', '', 'success');
+          Swal.fire('O Curso foi criado com sucesso!', '', 'success');
           this.router.navigate(['/curso']);
         },
         error: err => {
@@ -113,7 +113,7 @@ export class CriarCursoComponent {
           this.router.navigate(['/curso']);
         },
         error: err => {
-          Swal.fire('Houve um problema ao atualizar a Bimestre!', '', 'error');
+          Swal.fire('Houve um problema ao atualizar o Curso!', '', 'error');
         }
       });
     }
