@@ -84,6 +84,6 @@ export class DisciplinaComponent {
     }
   
     edit(id: number) {
-      this.router.navigate([`/bimestre/criar-bimestre/${id}`]);
+      this.router.navigate([`/disciplina/criar-disciplina/${id}`]);
     }
 }

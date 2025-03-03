@@ -7,6 +7,7 @@ import { BimestreService } from '../../../../services/bimestre/bimestre.service'
 import Swal from 'sweetalert2';
 import { CommonModule } from '@angular/common';
 import { TurmaService } from '../../../../services/turma/turma.service';
+import { DisciplinaService } from '../../../../services/disciplina/disciplina.service';
 
 @Component({
   selector: 'app-criar-disciplina',
@@ -28,7 +29,7 @@ export class CriarDisciplinaComponent {
       private authService: AuthService,
       private router: Router,
       private route: ActivatedRoute,
-      private bimestreService: BimestreService
+      private disciplinaService: DisciplinaService
     ) { }
   
     ngOnInit(): void {
@@ -42,10 +43,9 @@ export class CriarDisciplinaComponent {
       this.form = this.fb.group({
         id: [null],
         nome: ['', Validators.required],
-        ano: ['', Validators.required],
-        curso_id: [null, Validators.required],
-        inicio: [null, Validators.required],
-        fim: [null, Validators.required]
+        turma_id: ['', Validators.required],
+        professor: [null, Validators.required],
+        carga_horaria: [null, Validators.required],
       });
     }
   
@@ -62,42 +62,41 @@ export class CriarDisciplinaComponent {
         const id = params['id'];
         if (id) {
           this.isEditing = true;
-          this.loadBimestreData(id);
+          this.loadDisciplinaData(id);
         }
       });
     }
   
-    loadBimestreData(id: number) {
-      this.bimestreService.getById(id).subscribe({
+    loadDisciplinaData(id: number) {
+      this.disciplinaService.getById(id).subscribe({
         next: res => {
           this.form.patchValue({
             id: res.id,
             nome: res.nome,
-            ano: res.ano,
-            inicio: res.inicio,
-            fim: res.fim,
-            curso_id: res.curso_id  // Aqui, preenche o formulário com os dados da Bimestre
+            turma_id: res.turma_id,
+            professor: res.professor,
+            carga_horaria: res.carga_horaria
           });
         },
         error: err => {
-          Swal.fire('Erro ao carregar dados da Bimestre', '', 'error');
+          Swal.fire('Erro ao carregar dados da Disciplina', '', 'error');
         }
       });
     }
   
     add() {
       if (this.isEditing) {
-        this.updateBimestre();  // Se for edição, chama a função de atualizar
+        this.updateDisciplima();  // Se for edição, chama a função de atualizar
       } else {
-        this.createBimestre();  // Se for criação, chama a função de criar
+        this.createDisciplina();  // Se for criação, chama a função de criar
       }
     }
   
-    createBimestre() {
-      this.bimestreService.create(this.form.value).subscribe({
+    createDisciplina() {
+      this.disciplinaService.add(this.form.value).subscribe({
         next: res => {
-          Swal.fire('A Bimestre foi criada com sucesso!', '', 'success');
-          this.router.navigate(['/bimestre']);
+          Swal.fire('A Disciplina foi criada com sucesso!', '', 'success');
+          this.router.navigate(['/disciplina']);
         },
         error: err => {
           Swal.fire('Houve um problema no processo!', '', 'error');
@@ -105,14 +104,14 @@ export class CriarDisciplinaComponent {
       });
     }
   
-    updateBimestre() {
-      this.bimestreService.update(this.form.value, this.form.controls['id'].value).subscribe({
+    updateDisciplima() {
+      this.disciplinaService.update(this.form.value, this.form.controls['id'].value).subscribe({
         next: res => {
-          Swal.fire('A Bimestre foi atualizada com sucesso!', '', 'success');
-          this.router.navigate(['/bimestre']);
+          Swal.fire('A Disciplina foi atualizada com sucesso!', '', 'success');
+          this.router.navigate(['/disciplina']);
         },
         error: err => {
-          Swal.fire('Houve um problema ao atualizar a Bimestre!', '', 'error');
+          Swal.fire('Houve um problema ao atualizar a Disciplina!', '', 'error');
         }
       });
     }

@@ -65,6 +65,18 @@ export const routes: Routes = [
                 path: 'curso/criar-curso/:id',
                 loadComponent: () => import('./pages/logged/curso/criar-curso/criar-curso.component').then((c) => c.CriarCursoComponent)
             },
+            {
+                path: 'estudante',
+                loadComponent: () => import('./pages/logged/estudante/estudante.component').then((c) => c.EstudanteComponent)
+            },
+            {
+                path: 'estudante/criar-estudante',
+                loadComponent: () => import('./pages/logged/estudante/criar-estudante/criar-estudante.component').then((c) => c.CriarEstudanteComponent)
+            },
+            {
+                path: 'estudante/criar-estudante/:id',
+                loadComponent: () => import('./pages/logged/estudante/criar-estudante/criar-estudante.component').then((c) => c.CriarEstudanteComponent)
+            },
         ]
     },
     {

@@ -17,7 +17,19 @@ export class DisciplinaService {
     return this.http.get(`${this.url}getDisciplinasByAdminId/${id}`);
   }
 
+  getById(id: number): Observable<any> {
+    return this.http.get(`${this.url}disciplinas/${id}`)
+  }
+
   delete(id: number): Observable<any> {
     return this.http.delete(`${this.url}disciplinas/${id}`);
+  }
+
+  add(data: any): Observable<any> {
+    return this.http.post<any>(`${this.url}disciplinas`, data);
+  }
+
+  update(data: any, id: number): Observable<any> {
+    return this.http.put<any>(`${this.url}disciplinas/${id}`, data);
   }
 }
