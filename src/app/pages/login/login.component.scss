@@ -47,9 +47,9 @@ main {
         border: 0;
         transition: .3s ease-in-out;
 
-        &:hover {
-            margin: 12% auto 0 auto;
-        }
+        // &:hover {
+        //     margin: 12% auto 0 auto;
+        // }
     }
 }
 
@@ -71,16 +71,16 @@ main {
     }
 }
 
-@keyframes btn {
-    0% {
-        margin: 10% auto 0 auto;
-    }
+// @keyframes btn {
+//     0% {
+//         margin: 10% auto 0 auto;
+//     }
 
-    50% {
-        margin: 11% auto 0 auto;
-    }
+//     50% {
+//         margin: 11% auto 0 auto;
+//     }
 
-    100% {
-        margin: 10% auto 0 auto;
-    }
-}
+//     100% {
+//         margin: 10% auto 0 auto;
+//     }
+// }

@@ -26,7 +26,6 @@ import { Router, RouterModule } from '@angular/router';
   styleUrl: './turma.component.scss'
 })
 export class TurmaComponent implements OnInit {
-
   showFilters = false;
   displayedColumns: string[] = ['nome', 'ano', 'curso', 'menu'];
   dataSource = new MatTableDataSource<any>([]);
