@@ -9,6 +9,7 @@ import { Router, RouterModule } from '@angular/router';
 import Swal from 'sweetalert2';
 import { TurmaService } from '../../../services/turma/turma.service';
 import { AuthService } from '../../../services/auth/auth.service';
+import { EstudanteService } from '../../../services/estudante/estudante.service';
 
 @Component({
   selector: 'app-estudante',
@@ -35,17 +36,18 @@ export class EstudanteComponent {
     constructor(
       private turmaService: TurmaService,
       private authService: AuthService,
-      private router: Router
+      private router: Router,
+      private estudanteService: EstudanteService
     ) {
       this.user = this.authService.getUser();
     }
   
     ngOnInit(): void {
-      this.listTurmas();
+      this.listEstudantes();
     }
   
-    listTurmas() {
-      this.turmaService.getTurmasDoAdmin(this.user.id).subscribe({
+    listEstudantes() {
+      this.estudanteService.getEstudantesByAdminId(this.user.id).subscribe({
         next: res => {
           this.dataSource = new MatTableDataSource(res);
           this.dataSource.paginator = this.paginator;
@@ -64,10 +66,10 @@ export class EstudanteComponent {
           this.turmaService.delete(id).subscribe({
             next: res => {
               Swal.fire({
-                title: "Turma Deletada com Sucesso!",
+                title: "Estudante Deletado com Sucesso!",
                 icon: "success",
               });
-              this.listTurmas();
+              this.listEstudantes();
             }, error: err => {
               Swal.fire({
                 icon: "error",
@@ -77,13 +79,13 @@ export class EstudanteComponent {
             }
           })
         } else if (result.isDenied) {
-          Swal.fire("A Turma não foi deletada!", "", "info");
+          Swal.fire("O Estudante não foi deletado!", "", "info");
         }
       });
   
     }
   
     edit(id: number) {
-      this.router.navigate([`/turma/criar-turma/${id}`]);
+      this.router.navigate([`/estudante/criar-estudante/${id}`]);
     }
 }

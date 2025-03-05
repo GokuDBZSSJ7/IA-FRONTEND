@@ -36,6 +36,10 @@ export class TurmaService {
     return this.http.get(`${this.url}getTurmasDoAdmin/${id}`);
   }
 
+  getTurmaByCursoId(id: number): Observable<any> {
+    return this.http.get(`${this.url}getTurmaByCursoId/${id}`);
+  }
+
   delete(id: number): Observable<any> {
     return this.http.delete(`${this.url}turmas/${id}`);
   }

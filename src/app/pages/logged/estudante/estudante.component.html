@@ -2,7 +2,7 @@
     <div class="container-header flex justify-between items-center mb-5">
        <h1>Estudantes</h1>
        <div class="flex items-center gap-10">
-          <button routerLink="/turma/criar-turma">Criar Turma</button>
+          <button routerLink="/estudante/criar-estudante">Criar Estudante</button>
           <div class="flex justify-center items-center gap-1 cursor-pointer" (click)="showFilters = !showFilters">
              <mat-icon>filter_list</mat-icon>
              <span>Filtrar</span>
@@ -38,26 +38,27 @@
        <ng-container matColumnDef="turma">
           <th mat-header-cell *matHeaderCellDef> Turma </th>
           <td mat-cell *matCellDef="let item">
-             <span>{{item.ano}}</span>
+             <span>{{item.turma.nome}} - {{item.bimestre.nome}}</span><br>
+             <span>{{item.turma.curso.nome}}</span>
           </td>
        </ng-container>
  
        <ng-container matColumnDef="renda_familiar">
           <th mat-header-cell *matHeaderCellDef> Renda Familiar </th>
           <td mat-cell *matCellDef="let item">
-             <span>{{item.curso.nome}}</span>
+             <span>{{item?.renda_familiar || 'Sem Renda'}}</span>
           </td>
        </ng-container>
        <ng-container matColumnDef="bolsa">
           <th mat-header-cell *matHeaderCellDef> Bolsa </th>
           <td mat-cell *matCellDef="let item">
-             <span>{{item.curso.nome}}</span>
+             <span>{{item?.bolsa || 'Sem Bolsa'}}</span>
           </td>
        </ng-container>
        <ng-container matColumnDef="distancia">
           <th mat-header-cell *matHeaderCellDef> Distância </th>
           <td mat-cell *matCellDef="let item">
-             <span>{{item.curso.nome}}</span>
+             <span>{{item?.distancia || 'Sem Distância'}}</span>
           </td>
        </ng-container>
  
