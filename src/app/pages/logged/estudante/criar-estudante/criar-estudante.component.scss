@@ -1,0 +1,71 @@
+main {
+    min-height: 100vh;
+  }
+  
+  h1 {
+    font-size: 26px;
+  }
+  
+  input,
+  select {
+    height: 50px;
+    background-color: rgb(238, 238, 238);
+    padding: 12px 10px;
+    border-radius: 6px;
+    outline: none;
+    width: 100%;
+  
+  }
+  
+  select:focus {
+    border-color: #666;
+  }
+  
+  option {
+    font-size: 16px;
+    padding: 10px;
+    background: #fff;
+    color: #333;
+  }
+  
+  option:checked {
+    background-color: #ddd;
+    font-weight: bold;
+  }
+  
+  select {
+    padding-right: 30px;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="black"><path d="M7 10l5 5 5-5H7z"/></svg>');
+    /* Ícone da seta */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+  
+  }
+  
+  .btns {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+  
+    button {
+      width: 100px;
+      margin: 0 10px;
+      padding: 6px 0;
+      border-radius: 4px;
+      color: white;
+    }
+  }
+  
+  .confirm {
+    background-color: green;
+  }
+  
+  .cancel {
+    background-color: red;
+  }
+  span {
+    color: red;
+    font-size: 10px;
+  }

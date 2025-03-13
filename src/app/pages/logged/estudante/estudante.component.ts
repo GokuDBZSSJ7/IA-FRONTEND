@@ -9,6 +9,7 @@ import { Router, RouterModule } from '@angular/router';
 import Swal from 'sweetalert2';
 import { TurmaService } from '../../../services/turma/turma.service';
 import { AuthService } from '../../../services/auth/auth.service';
+import { EstudanteService } from '../../../services/estudante/estudante.service';
 
 @Component({
   selector: 'app-estudante',
@@ -33,7 +34,7 @@ export class EstudanteComponent {
     user: any;
   
     constructor(
-      private turmaService: TurmaService,
+      private estudanteService: EstudanteService,
       private authService: AuthService,
       private router: Router
     ) {
@@ -45,7 +46,7 @@ export class EstudanteComponent {
     }
   
     listTurmas() {
-      this.turmaService.getTurmasDoAdmin(this.user.id).subscribe({
+      this.estudanteService.getEstudantesDoUsuario(this.user.id).subscribe({
         next: res => {
           this.dataSource = new MatTableDataSource(res);
           this.dataSource.paginator = this.paginator;
@@ -61,7 +62,7 @@ export class EstudanteComponent {
         denyButtonText: `Não!`
       }).then((result) => {
         if (result.isConfirmed) {
-          this.turmaService.delete(id).subscribe({
+          this.estudanteService.delete(id).subscribe({
             next: res => {
               Swal.fire({
                 title: "Turma Deletada com Sucesso!",
