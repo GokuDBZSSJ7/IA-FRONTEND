@@ -38,27 +38,26 @@
        <ng-container matColumnDef="turma">
           <th mat-header-cell *matHeaderCellDef> Turma </th>
           <td mat-cell *matCellDef="let item">
-             <span>{{item.turma.nome}} - {{item.bimestre.nome}}</span><br>
-             <span>{{item.turma.curso.nome}}</span>
+             <span>{{item.turma.nome}} - {{item.turma.curso.nome}}</span>
           </td>
        </ng-container>
  
        <ng-container matColumnDef="renda_familiar">
           <th mat-header-cell *matHeaderCellDef> Renda Familiar </th>
           <td mat-cell *matCellDef="let item">
-             <span>{{item?.renda_familiar || 'Sem Renda'}}</span>
+             <span>{{item.renda_familiar}}</span>
           </td>
        </ng-container>
        <ng-container matColumnDef="bolsa">
           <th mat-header-cell *matHeaderCellDef> Bolsa </th>
           <td mat-cell *matCellDef="let item">
-             <span>{{item?.bolsa || 'Sem Bolsa'}}</span>
+             <span>{{item.bolsa ? 'Tem' : 'Não Tem'}}</span>
           </td>
        </ng-container>
        <ng-container matColumnDef="distancia">
           <th mat-header-cell *matHeaderCellDef> Distância </th>
           <td mat-cell *matCellDef="let item">
-             <span>{{item?.distancia || 'Sem Distância'}}</span>
+             <span>{{item.distancia}}</span>
           </td>
        </ng-container>
  

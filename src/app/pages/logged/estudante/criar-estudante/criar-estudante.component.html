@@ -5,35 +5,51 @@
 
     <form [formGroup]="form" class="grid grid-cols-12 gap-2">
         <div class="col-span-4">
-            <input type="text" placeholder="Nome do Estudante..." formControlName="nome">
+            <label>Nome do Estudante <span>*Obrigatório</span></label>
+            <input type="text" formControlName="nome">
         </div>
         <div class="col-span-5">
-            <select formControlName="curso_id" (change)="getTurma()">
-                <option [value]="null" selected hidden>Escolha um curso</option>
-                @for(item of cursos; track item.id) {
-                    <option [value]="item.id">{{item.nome}}</option>
-                }
-            </select>
-        </div>
-        <div class="col-span-5">
+            <label>Escolha uma turma <span>*Obrigatório</span></label>
             <select formControlName="turma_id">
-                <option [value]="null" selected hidden>Escolha um curso</option>
+                <option [value]="null" selected hidden>Escolha uma Turma</option>
                 @for(item of turmas; track item.id) {
-                    <option [value]="item.id">{{item.nome}}</option>
+                <option [value]="item.id">{{item.nome}} - {{item.curso.nome}}</option>
                 }
             </select>
         </div>
         <div class="col-span-3">
-            <input type="number" placeholder="Ano da Turma..." formControlName="ano">
+            <label>Renda Familiar</label>
+            <input type="text" formControlName="renda_familiar">
+        </div>
+        <div class="col-span-5">
+            <label>Escolha um Bimestre <span>*Obrigatório</span></label>
+            <select formControlName="bimestre_id">
+                <option [value]="null" selected hidden>Escolha uma Turma</option>
+                @for(item of bimestres; track item.id) {
+                <option [value]="item.id">{{item.nome}} - {{item.curso.nome}}</option>
+                }
+            </select>
+        </div>
+        <div class="col-span-2">
+            <label>Tem Bolsa?</label>
+            <select formControlName="bolsa">
+                <option [ngValue]="null" selected hidden>Tem bolsa?</option>
+                <option [ngValue]="true">Sim</option>
+                <option [ngValue]="false">Não</option>
+              </select>
+        </div>
+        <div class="col-span-3">
+            <label>Distância da Instituição</label>
+            <input type="text" formControlName="distancia">
         </div>
 
         <div class="col-span-6 btns">
             @if(isEditing) {
-                <button class="confirm" (click)="add()">Atualizar</button>
+            <button class="confirm" (click)="add()">Atualizar</button>
             } @else {
-                <button class="confirm" (click)="add()">Cadastrar</button>
+            <button class="confirm" (click)="add()">Cadastrar</button>
             }
-            <button class="cancel" routerLink="/turma">Cancelar</button>
+            <button class="cancel" routerLink="/disciplina">Cancelar</button>
         </div>
     </form>
 </main>

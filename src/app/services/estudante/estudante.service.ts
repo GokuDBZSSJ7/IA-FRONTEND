@@ -13,19 +13,23 @@ export class EstudanteService {
     private http: HttpClient
   ) { }
 
-  all(): Observable<any> {
-    return this.http.get(`${this.url}estudantes`);
+  add(data: any): Observable<any> {
+    return this.http.post(`${this.url}estudantes`, data);
   }
 
-  getEstudantesByAdminId(id: number): Observable<any> {
-    return this.http.get(`${this.url}getEstudantesByAdminId/${id}`);
-  }
-
-  delete(id: number): Observable<any> {
-    return this.http.delete(`${this.url}estudantes/${id}`);
+  getById(id: number): Observable<any> {
+    return this.http.get(`${this.url}estudantes/${id}`);
   }
 
   update(data: any, id: number): Observable<any> {
     return this.http.put(`${this.url}estudantes/${id}`, data);
+  }
+
+  getEstudantesDoUsuario(id: number): Observable<any> {
+    return this.http.get(`${this.url}getEstudantesDoUsuario/${id}`);
+  }
+
+  delete(id: number): Observable<any> {
+    return this.http.delete(`${this.url}estudantes/${id}`)
   }
 }
