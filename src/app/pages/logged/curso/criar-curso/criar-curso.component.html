@@ -5,7 +5,8 @@
 
     <form [formGroup]="form" class="grid grid-cols-12 gap-2">
         <div class="col-span-12">
-            <input type="text" placeholder="Nome do Curso..." formControlName="nome">
+            <label>Nome do Curso <span>*Obrigatório</span></label>
+            <input type="text" formControlName="nome">
         </div>
 
         <div class="col-span-6 btns">
